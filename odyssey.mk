@@ -1,22 +1,26 @@
 ## Specify phone tech before including full_phone
-$(call inherit-product, vendor/slim/config/gsm.mk)
+$(call inherit-product, vendor/odyssey/config/gsm.mk)
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 
-# Inherit some common Slim stuff.
-$(call inherit-product, vendor/slim/config/common_full_phone.mk)
+# Inherit some common Odyssey stuff.
+$(call inherit-product, vendor/odyssey/config/common_full_phone.mk)
 
 # Enhanced NFC
-$(call inherit-product, vendor/slim/config/nfc_enhanced.mk)
+$(call inherit-product, vendor/odyssey/config/nfc_enhanced.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/lge/geeb/full_geeb.mk)
 
+# Hybrid
+ PRODUCT_COPY_FILES +=  \
+    vendor/odyssey/prebuilt/hybrid_xhdpi.conf:system/etc/beerbong/properties.conf
+
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := geeb
-PRODUCT_NAME := slim_geeb
+PRODUCT_NAME := odyssey_geeb
 PRODUCT_BRAND := LGE
 PRODUCT_MODEL := Optimus G
 PRODUCT_MANUFACTURER := LGE
